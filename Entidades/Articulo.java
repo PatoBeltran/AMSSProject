@@ -13,6 +13,7 @@ public class Articulo{
 	public String textoArticulo;
 	public Date fechaPublicacion;
 	
+	
 	public Articulo (ResultSet rs){
 	  init(rs);
 	  }
