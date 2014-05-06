@@ -1,0 +1,79 @@
+.container {
+  margin: 0 auto;
+  padding: 5em;
+}
+.container .p-90 {
+  width: 90%;
+}
+.container .p-80 {
+  width: 80%;
+}
+.container .p-70 {
+  width: 70%;
+}
+.wrapper.landing {
+  background-image: url(http://drrop.it/files/53684861b80bd.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  min-height: 672px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  padding-bottom: 2rem;
+}
+.sub-title {
+  font-weight: 300;
+  font-size: 2rem;
+  color: white;
+  padding: .5rem 0 .5rem;
+  margin: 0;
+}
+.main-title {
+  font-weight: 700;
+  font-size: 3.5rem;
+  padding: 0 0 3rem;
+  color: white;
+  margin: 0;
+}
+.impact-section {
+  padding: 1rem 1.3rem;
+  margin: 0 auto;
+  display: inline-block;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  width: auto;
+  -webkit-border-radius: .5rem;
+  -moz-border-radius: .5rem;
+  border-radius: .5rem;
+  background: rgba(0,0,0,0.5);
+}
+.call-to-action {
+  color: #ba9;
+  font-weight: 500;
+  margin: .25rem .25rem .4rem .25rem;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+}
+a.enter {
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  padding: .5rem 1.25rem;
+  line-height: 3rem;
+  border: 1px solid white;
+  -webkit-border-radius: .25rem;
+  -moz-border-radius: .25rem;
+  border-radius: .25rem;
+  -webkit-transitionDISABLED: background .1s ease-out;
+  -moz-transitionDISABLED: background .1s ease-out;
+  -o-transitionDISABLED: background .1s ease-out;
+  transitionDISABLED: background .1s ease-out;
+}
+a.enter:hover {
+  background: white;
+  color: #555459 !important;
+  text-shadow: none;
+  text-decoration: none;
+}
+

@@ -35,7 +35,17 @@
     <servlet-mapping>
         <servlet-name>Transferencia</servlet-name>
         <url-pattern>/Transferencia</url-pattern>
+      </servlet-mapping>    
+
+      <servlet>
+      <servlet-name>Cliente</servlet-name>
+      <servlet-class>interfaces.InterfazCliente</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Cliente</servlet-name>
+        <url-pattern>/Cliente</url-pattern>
     </servlet-mapping>    
+
 
 <!--
 <servlet>
