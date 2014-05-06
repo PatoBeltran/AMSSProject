@@ -38,13 +38,21 @@
       </servlet-mapping>    
 
       <servlet>
-      <servlet-name>Cliente</servlet-name>
-      <servlet-class>interfaces.InterfazCliente</servlet-class>
-    </servlet>
-    <servlet-mapping>
+        <servlet-name>Cliente</servlet-name>
+        <servlet-class>interfaces.InterfazCliente</servlet-class>
+      </servlet>
+      <servlet-mapping>
         <servlet-name>Cliente</servlet-name>
         <url-pattern>/Cliente</url-pattern>
-    </servlet-mapping>    
+      </servlet-mapping>    
+        <servlet>
+          <servlet-name>Juez</servlet-name>
+        <servlet-class>interfaces.InterfazJuez</servlet-class>
+      </servlet>
+      <servlet-mapping>
+        <servlet-name>Juez</servlet-name>
+        <url-pattern>/Juez</url-pattern>
+      </servlet-mapping>    
 
 
 <!--
