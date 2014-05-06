@@ -52,7 +52,16 @@
       <servlet-mapping>
         <servlet-name>Juez</servlet-name>
         <url-pattern>/Juez</url-pattern>
-      </servlet-mapping>    
+      </servlet-mapping>
+         <servlet>
+          <servlet-name>Editor</servlet-name>
+        <servlet-class>interfaces.InterfazEditor</servlet-class>
+      </servlet>
+      <servlet-mapping>
+        <servlet-name>Editor</servlet-name>
+        <url-pattern>/Editor</url-pattern>
+      </servlet-mapping>
+
 
 
 <!--
