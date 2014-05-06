@@ -53,10 +53,10 @@ public class InterfazCliente extends HttpServlet {
     out.println("<div class='photo col-3'><img src='http://drrop.it/files/536885ad423c4.jpg' class='responsive circular' /></div>");
     out.println("<div class='personal col-9 row'>");
     out.println("<div class='col-12 user-name row'>");
-    out.println("<h1 class='col-6'>" + /* ca.getUserName(id)*/ "PATO" + "</h1>");
+    out.println("<h1 class='col-6'>" + ca.getUserName(id) + "</h1>");
     out.println("<div class='col-6' style='text-align: right;'>");
     out.println("<h2 class='suscription'>" + "Suscrito" + "</h2>");
-    out.println("<h4 class='expiration'>Expira: " + "" + "</h4>");
+    out.println("<h4 class='expiration'>Expira: " + "1/1/10" + "</h4>");
     out.println("</div>");
     out.println("</div>");
     out.println("<div class='col-12 user-info row'>");
@@ -78,7 +78,8 @@ public class InterfazCliente extends HttpServlet {
     out.println("<div class='col-8'>Lorem ipsum dolor sit amet, maiores ornare ac fermentum, imperdiet ut vivamus a, nam lectus at nunc. Quam euismod sem, semper ut potenti pellentesque quisque.... Más</div>");
     out.println("</div>");
     out.println("</div>");
-    out.println("<div class='publicidad col-3 row'");
+    out.println("</div>");
+    out.println("<div class='publicidad col-3 row'>");
     out.println("<div class='publi-item col-12'>");
     out.println("<p>Lorem ipsum dolor sit amet, maiores ornare ac fermentum, imperdiet ut vivamus a, nam lectus at nunc. Quam euismod sem, semper ut potenti pellentesque quisque. In eget sapien sed.</p>");
     out.println("</div>");
