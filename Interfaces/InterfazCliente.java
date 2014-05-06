@@ -48,10 +48,32 @@ public class InterfazCliente extends HttpServlet {
         editInfo(id);
       } else if(operacion.equals("editarCuenta")) {
         editarCuenta(id, request);
+      } else if(operacion.equals("enviarPublicidad")) {
+        enviarPublicidad(id);
       }
 
     }
     footer();
+  }
+
+  void enviarPublicidad(int id) {
+    out.println("<div class='wrapper profile'>");
+    out.println("<div class='container p-90 row'>");
+
+    out.println("<div class='impact-section col-12 row'>");
+    out.println("<form method='GET' action='Cliente'>");
+    out.println("<input type=\"hidden\" name=\"dentro\" value=\"si\"/>");
+    out.println("<input type=\"hidden\" name=\"user_id\" value=\""+ id +"\"/>");
+    out.println("<input type='text' name='publicidad' id='publicidad' value='' placeholder='Escriba publicidad'>");
+    out.println("<input type=\"submit\" class='col-6 button alpha primary accept' value=\"Enviar\"name=\"B1\">");
+    out.println("</form>");
+    out.println("</div>");
+
+    out.println("<a href='?user_id="+id+"&dentro=si' class='button alpha danger cancel' style='max-width: 100px;'>Regresar</a>");
+
+    out.println("</div>");
+    out.println("</div>");
+
   }
 
   void editInfo(int id) {
@@ -135,7 +157,7 @@ public class InterfazCliente extends HttpServlet {
     out.println("</div>");
     out.println("<div class='col-4' style='text-align: right;'>");
     out.println("<a href='?user_id="+id+"&dentro=si&operacion=editInfo' class='enter'>Editar Informacion</a>");
-    out.println("<a href='#' class='enter'>Enviar Publicidad</a>");
+    out.println("<a href='?user_id="+id+"&dentro=si&operacion=enviarPublicidad' class='enter'>Enviar Publicidad</a>");
     out.println("</div>");
     out.println("</div>");
     out.println("</div>");
