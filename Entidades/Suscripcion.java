@@ -5,26 +5,26 @@ import java.sql.*;
 import java.io.*;
 import java.sql.Date;
 
-public class iSuscripcion {
+public class Suscripcion {
 	public int idSuscripcion;
 	public int idSuscriptor;
 	public Date fechaInicio;
 	public Date fechaFin;
 	
-	public iSuscripcion(ResultSet rs) {
+	public Suscripcion(ResultSet rs) {
 		init(rs);
 	}
 	
 	public void init(ResultSet rs) {
 		try {
 			idSuscripcion = rs.getInt("idsuscripcion");
-			idSuscriptor = rs.getString("idsuscriptor");
+			idSuscriptor = rs.getInt("idsuscriptor");
 			fechaInicio = rs.getDate("fechadeinicio");
 			fechaFin = rs.getDate("fechadefin");
 		} catch (Exception e){}
 	}
 	
-	public NotaActualidad(int id) {
+	public void NotaActualidad(int id) {
 		Conexion c = new Conexion();
 		ResultSet rs = c.executeQuery("select * from Nota where idNota = " + id);
 		try {

@@ -91,7 +91,7 @@ public class Usuarios {
    }
 
 
-   boolean createAccount(String userName, String password){
+   public boolean createAccount(String userName, String password){
     if(!validarPorNombre(userName))
     {
       try{

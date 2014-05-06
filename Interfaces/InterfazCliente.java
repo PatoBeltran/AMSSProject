@@ -22,9 +22,9 @@ public class InterfazCliente extends HttpServlet {
 
     String operacion = request.getParameter("operacion");
     String dentro = request.getParameter("dentro");
-    int id = Integer.parseInt(request.getParameter("user_id"));
 
     if(dentro == "1") {
+    int id = Integer.parseInt(request.getParameter("user_id"));
       if(operacion == null) {
         verPerfil(id);
       } else if(operacion.equals("ver_archivo")) {
