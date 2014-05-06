@@ -13,8 +13,6 @@ public class Articulo{
 	public String textoArticulo;
 	public Date fechaPublicacion;
 	
-	Connection conn;
-	Statement stmt;
 	
 	public Articulo (ResultSet rs){
 	  init(rs);
