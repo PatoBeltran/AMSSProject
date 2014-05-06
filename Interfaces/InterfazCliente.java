@@ -67,19 +67,21 @@ public class InterfazCliente extends HttpServlet {
     out.println("<div class='wrapper landing'>");
     out.println("<div class='container p-90 row'>");
     out.println("<div class='col-6'></div>");
-    out.println("<div class='col-6'>");
+    out.println("<div class='col-6 row'>");
     out.println("<h1 class='sub-title'>Bienvenido a</h1>");
     out.println("<h2 class='main-title'>SEng Bytes & Bits</h2>");
-    out.println("<div class='impact-section'>");
+    out.println("<div class='impact-section col-12 row'>");
+    out.println("<h4 class='call-to-action'>Iniciar Sesión</h4>");
     out.println("<div class='col-12 row'>");
     out.println("<form method='GET' action='Cliente'>");
-    out.println("<input type='text' name='email' size='15'>");
-    out.println("<input type='text' name='password' size='15'>");
-    out.println("<input type=\"submit\" value=\"Entrar\"name=\"B1\">");
+    out.println("<input type=\"hidden\" name=\"operacion\" value=\"entrar\"/>");
+    out.println("<input type='text' name='email' id='email' value='' placeholder='Correo Electrónico'>");
+    out.println("<input type='text' name='password' id='password' value='' placeholder='Contraseña'>");
+    out.println("<input type=\"submit\" class='col-6 button alpha primary accept' value=\"Entrar\"name=\"B1\">");
     out.println("</form>");
 
     out.println("<form method=\"GET\" action=\"index.html\">");
-    out.println("<p><input type=\"submit\" value=\"Cancelar\"name=\"B2\"></p>");
+    out.println("<p><input type=\"submit\" class='col-6 button alpha danger cancel' value=\"Cancelar\"name=\"B2\"></p>");
     out.println("</form>");
 
     out.println("</div>");

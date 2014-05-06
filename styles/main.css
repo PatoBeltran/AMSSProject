@@ -36,7 +36,7 @@
   margin: 0;
 }
 .impact-section {
-  padding: 1rem 1.3rem;
+  padding: 1rem 1.3rem !important;
   margin: 0 auto;
   display: inline-block;
   text-align: center;
@@ -88,4 +88,23 @@ color: #FFF;
   display: inline-block;
   padding-top: 0;
   padding-bottom: 0;
+}
+.cancel {
+  padding-left: 1em;
+}
+.accept {
+  background: rgba(0, 0, 0, 0) !important;
+  width: 45% !important;
+  margin-right:5% !important;
+}
+.accept:hover {
+  background: #3498db !important;
+}
+.cancel {
+  background: rgba(0, 0, 0, 0) !important;
+  width: 45% !important;
+  margin-left:5% !important;
+}
+.cancel:hover {
+  background: #e74c3c !important;
 }
