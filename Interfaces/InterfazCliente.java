@@ -43,18 +43,22 @@ public class InterfazCliente extends HttpServlet {
   }
 
   void content() {
-    out.println("<div class='wrapper'>");
-    out.println("<div class='container p-90'");
-    out.println("<div class='col-12'>");
-    out.println("<h1 class='main-title'>Bienvenido a</h1>");
-    out.println("<h2 class='sub-title'>SEng Bytes & Bits</h2>");
+    out.println("<div class='wrapper landing'>");
+    out.println("<div class='container p-90 row'>");
+    out.println("<div class='col-6'></div>");
+    out.println("<div class='col-6'>");
+    out.println("<h1 class='sub-title'>Bienvenido a</h1>");
+    out.println("<h2 class='main-title'>SEng Bytes & Bits</h2>");
+    out.println("<div class='impact-section'>");
     out.println("<h4 class='call-to-action'>Se parte de la revista de software con mayor experiencia en el país.</h4>");
     out.println("<div class='col-12 row'>");
     out.println("<div class='col-6'>");
-    out.println("<a href='#'>Iniciar Sesión</a>");
+    out.println("<a href='#' class='enter'>Iniciar Sesión</a>");
     out.println("</div>");
     out.println("<div class='col-6'>");
-    out.println("<a href='#'>Crear Cuenta</a>");
+    out.println("<a href='#' class='enter'>Crear Cuenta</a>");
+    out.println("</div>");
+    out.println("</div>");
     out.println("</div>");
     out.println("</div>");
     out.println("</div>");
