@@ -23,14 +23,7 @@ public class InterfazCliente extends HttpServlet {
     String operacion = request.getParameter("operacion");
     String dentro = request.getParameter("dentro");
 
-    if(dentro.equals("si")) {
-    int id = Integer.parseInt(request.getParameter("user_id"));
-      if(operacion == null) {
-        verPerfil(id);
-      } else if(operacion.equals("ver_archivo")) {
-        //verArchivo();
-      }
-    } else {
+    if(dentro == null) {
       if(operacion == null){ // El menu nos envia un parametro para indicar el inicio de una transaccion
         landingContent();
       } else if(operacion.equals("entrar")){
@@ -41,6 +34,13 @@ public class InterfazCliente extends HttpServlet {
         cuentaCreada(request);
       } else if(operacion.equals("entrarCuenta")){
         entrarCuenta(request);
+      }
+    } else if (dentro.equals("si")) {
+      int id = Integer.parseInt(request.getParameter("user_id"));
+      if(operacion == null) {
+        verPerfil(id);
+      } else if(operacion.equals("ver_archivo")) {
+        //verArchivo();
       }
     }
     footer();
