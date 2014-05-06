@@ -55,6 +55,16 @@ public class Usuarios {
     return false;
   }
 
+  public boolean suscrito(int IDUsuario){
+    try {
+      stmt.executeQuery("SELECT IDUsuario FROM usuarios WHERE IDUsuario = " + IDUsuario );
+      ResultSet rs = stmt.getResultSet();
+      rs.next();
+        return true;
+    } catch (SQLException e) { System.out.println ("Error reading database login " + e); }
+    return true;
+  }
+
   public boolean validarPorID(int IDNumber){
     try {
       stmt.executeQuery("SELECT IDUsuario FROM usuarios WHERE IDUsuario = " + IDNumber);
@@ -127,7 +137,7 @@ public class Usuarios {
   }
 
 
-
+  ////legacy///
   public void agregar(int cuenta, String nombre, float saldo){
     try {
       String s = "INSERT INTO CUENTA (ncuenta, nombre, saldo)" +

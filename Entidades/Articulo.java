@@ -14,14 +14,25 @@ public class Articulo{
 
    }
 	   
-	public  String getArticulo(int idArticulo) {	
+	public  String getInformacionArticulo(int idArticulo) {	
     		try {
       			stmt.executeQuery("SELECT informacion FROM articulo WHERE idArticulo = " + idArticulo);
       			ResultSet rs = stmt.getResultSet();
       			if (rs.next()) {
       				return rs.getString("informacion");
       					}
-    			} catch (SQLException e) { System.out.println ("Error reading database validarPorNombre"); }
+    			} catch (SQLException e) { System.out.println ("Error reading database getInformacionArticulo"); }
+    return "";
+	}
+
+	public  String getTituloArticulo(int idArticulo) {	
+    		try {
+      			stmt.executeQuery("SELECT titulo FROM articulo WHERE idArticulo = " + idArticulo);
+      			ResultSet rs = stmt.getResultSet();
+      			if (rs.next()) {
+      				return rs.getString("titulo");
+      					}
+    			} catch (SQLException e) { System.out.println ("Error reading database getTituloArticulo"); }
     return "";
 	}
 	
@@ -57,13 +68,32 @@ public class Articulo{
 			return array2;
 		} catch (SQLException e) { System.out.println ("Error reading database editArticuloTitulo"); }
 		return new int [] {0};
+	}
+
 	
+	public int [] getIDPublicidad(){
+		int [] array = new int [256];
+		try{
+			stmt.executeQuery("SELECT IDPublicidad FROM publicidad");
+			ResultSet rs = stmt.getResultSet();
+			int counter=0;
+			while(rs.next())
+			{
+				array[counter]=rs.getInt("idArticulo");
+				counter++;
+			}
+			int [] array2 = new int[counter];
+			System.arraycopy( array, 0, array2, 0, array2.length );
+			return array2;
+		} catch (SQLException e) { System.out.println ("Error reading database editArticuloTitulo"); }
+		return new int [] {0};
+	}
 	public void nuevoArticulo(int idAutor, int idArticulo, String titulo, String info, String fechaPub, boolean publicado){
 		try{
 			String s = "INSERT INTO articulos (idarticulo, titulo, idautor, fechapublicacion, publicado, informacion)" 
 			+ " VALUES (" + idArticulo + " ,'" + titulo + " ,'" + idAutor 
-			+ " ,'" + fechaPub + " ,'" + publicado + " ,'" + info + " )");
+			+ " ,'" + fechaPub + " ,'" + publicado + " ,'" + info + " )";
 			stmt.executeUpdate(s);
-		} catch (SQLException e) { System.out.println ("Error updating database Articulo");
+		} catch (SQLException e) { System.out.println ("Error updating database Articulo");}
 	}
 }
