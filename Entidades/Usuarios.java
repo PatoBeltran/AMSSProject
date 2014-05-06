@@ -24,7 +24,7 @@ public class Usuarios {
          ResultSet rs = stmt.getResultSet();
          if (rs.next()) { //Va al primer registro si lo hay
             String nnombre = rs.getString("nombre");
-            return( nnombre == nombre );
+            return( nnombre.equals(nombre) );
          }else{ return false;}
       } catch (SQLException e) { System.out.println ("Error reading database"); }
       return false;
@@ -36,11 +36,11 @@ public class Usuarios {
          ResultSet rs = stmt.getResultSet();
          if (rs.next()) { //Va al primer registro si lo hay
             String nnombre = rs.getString("nombre");
-            if ( nnombre == nombre ){
+            if ( nnombre.equals(nombre) ){
               stmt.executeQuery ("SELECT password FROM usuarios WHERE nombre = " + nombre);
               ResultSet rs2 = stmt.getResultSet();
               String passConf = rs.getString("password");
-              return (password == passConf );
+              return (password.equals(passConf) );
             }
          }else{ return false;}
       } catch (SQLException e) { System.out.println ("Error reading database"); }
