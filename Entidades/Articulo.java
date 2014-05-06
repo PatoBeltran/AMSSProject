@@ -27,15 +27,16 @@ public class Articulo{
 	
 	public boolean editArticulo(int idArticulo, String nInfo, String nTitulo)
 	{
-		try{
-			stmt.executeQuery("SELECT informacion FROM articulo WHERE idArticulo = " + idArticulo);
-			ResultSet rs= stmt.getResultSet();
-			if(rs.next()){
-				if(nInfo!="")
-				stmt.executeUpdate("UPDATE articulo SET informacion = '" + nInfo + "'");
-				if(nTitulo!="")
-				stmt.excecuteUpdate("UPDATE articulo SET titulo = '" + nTitulo + "'");
-			}
-		}
+		// try{
+		// 	stmt.executeQuery("SELECT informacion FROM articulo WHERE idArticulo = " + idArticulo);
+		// 	ResultSet rs= stmt.getResultSet();
+		// 	if(rs.next()){
+		// 		if(nInfo!="")
+		// 		stmt.executeUpdate("UPDATE articulo SET informacion = '" + nInfo + "'");
+		// 		if(nTitulo!="")
+		// 		stmt.excecuteUpdate("UPDATE articulo SET titulo = '" + nTitulo + "'");
+		// 	}
+		// } catch (SQLException e) { System.out.println ("Error reading database getArticulo"); }
+		return false;
 	}
 }
