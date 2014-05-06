@@ -1,12 +1,19 @@
 package entidades;
+
+import java.util.*;
 import java.sql.*;
 import java.io.*;
+import java.sql.Date;
 
-public class Cuenta {
-   Connection conn;
-   Statement stmt;
-
-   public Cuenta(){
+public class Usuario {
+   public int idUsuario;
+	public String tipo;
+	public String nombre;
+	public Date fechaDeNacimiento;
+	public String email;
+	public String pass;
+	
+   public Usuario(ResultSet rs){
       try {
         String userName = "root";
         String password = "";
