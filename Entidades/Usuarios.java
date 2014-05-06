@@ -84,7 +84,7 @@ public class Usuarios {
     return IDNumber;
   }
 
-    public String getUserName(int userID){
+  public String getUserName(int userID){
     String result;
     try {
       stmt.executeQuery("SELECT nombre FROM usuarios WHERE IDUsuario = " + userID);
