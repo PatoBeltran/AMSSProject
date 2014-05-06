@@ -20,23 +20,20 @@ public class Usuarios {
 
    public boolean validarPorNombre(String nombre){
       try {
-         stmt.executeQuery ("SELECT nombre FROM usuarios WHERE nombre = " + nombre);
+         stmt.executeQuery ("SELECT nombre FROM usuarios WHERE nombre = '" + nombre + "'");
          ResultSet rs = stmt.getResultSet();
-         if (rs.next()) { //Va al primer registro si lo hay
-            String nnombre = rs.getString("nombre");
-            return( nnombre.equals(nombre) );
-         }else{ return false;}
-      } catch (SQLException e) { System.out.println ("Error reading database"); }
+         return (rs.next());//Va al primer registro si lo hay
+      } catch (SQLException e) { System.out.println ("Error reading database validarPorNombre"); }
       return false;
    }
 
     public boolean login(String nombre, String password){
       try {
-            stmt.executeQuery ("SELECT password FROM usuarios WHERE nombre = " + nombre);
+            stmt.executeQuery ("SELECT password FROM usuarios WHERE nombre = " + "'" + nombre + "'");
             ResultSet rs = stmt.getResultSet();
             String passConf = rs.getString("password");
             return (password.equals(passConf) );
-      } catch (SQLException e) { System.out.println ("Error reading database"); }
+      } catch (SQLException e) { System.out.println ("Error reading database login"); }
       return false;
    }
 
