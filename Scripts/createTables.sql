@@ -4,10 +4,10 @@ use AMSS;
 CREATE TABLE IF NOT EXISTS usuarios (
 			IdUsuario INT NOT NULL AUTO_INCREMENT,
 			Tipo VARCHAR(255),
-			Nombre VARCHAR(255),
+			Nombre VARCHAR(255) NOT NULL,
 			FechaDeNacimiento DATETIME,
-			Email VARCHAR(255) NOT NULL,
-			Password VARCHAR(255),
+			Email VARCHAR(255),
+			Password VARCHAR(255) NOT NULL,
 			PRIMARY KEY (IdUsuario)
 			);
 

@@ -10,7 +10,7 @@ public class ControlSuscripcion {
 
   public boolean createAccount(String username, String password, String password_confirmation){
     if(password.equals(password_confirmation)) {
-      return true;
+      return cuenta.createAccount(username, password);
     } else {
       return false;
     }
@@ -21,7 +21,7 @@ public class ControlSuscripcion {
   }
 
   public boolean entrar(String username, String password) {
-    return true;
+    return cuenta.validarCuenta(username, password);
   }
 
   // ======================== CODIGO DEL PROFE ==================
