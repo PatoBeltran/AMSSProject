@@ -44,7 +44,8 @@ public class Articulo{
 	public void nuevoArticulo(int idAutor, int idArticulo, String titulo, String info, String fechaPub, boolean publicado){
 		try{
 			String s = "INSERT INTO articulos (idarticulo, titulo, idautor, fechapublicacion, publicado, informacion)" 
-			+ " VALUES (" + idArticulo + " ,'" + titulo + " ,'" + idAutor + " ,'" + fechaPub + " ,'" + publicado + " ,'" + info + " )");
+			+ " VALUES (" + idArticulo + " ,'" + titulo + " ,'" + idAutor 
+			+ " ,'" + fechaPub + " ,'" + publicado + " ,'" + info + " )");
 			stmt.executeUpdate(s);
 		} catch (SQLException e) { System.out.println ("Error updating database Articulo");
 	}
