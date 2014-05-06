@@ -32,17 +32,11 @@ public class Usuarios {
 
     public boolean login(String nombre, String password){
       try {
-         stmt.executeQuery ("SELECT nombre FROM usuarios WHERE nombre = " + nombre);
-         ResultSet rs = stmt.getResultSet();
-         if (rs.next()) { //Va al primer registro si lo hay
-            String nnombre = rs.getString("nombre");
-            if ( nnombre.equals(nombre) ){
-              stmt.executeQuery ("SELECT password FROM usuarios WHERE nombre = " + nombre);
-              ResultSet rs2 = stmt.getResultSet();
-              String passConf = rs.getString("password");
-              return (password.equals(passConf) );
+            stmt.executeQuery ("SELECT password FROM usuarios WHERE nombre = " + nombre);
+            ResultSet rs = stmt.getResultSet();
+            String passConf = rs.getString("password");
+            return (password.equals(passConf) );
             }
-         }else{ return false;}
       } catch (SQLException e) { System.out.println ("Error reading database"); }
       return false;
    }
