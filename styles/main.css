@@ -21,6 +21,11 @@
   text-shadow: 0 1px 2px rgba(0,0,0,0.5);
   padding-bottom: 2rem;
 }
+.wrapper.profile {
+  background: #3aa497;
+  min-height: 672px;
+  padding-bottom: 2rem;
+}
 .sub-title {
   font-weight: 300;
   font-size: 2rem;

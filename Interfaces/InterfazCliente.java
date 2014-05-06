@@ -22,10 +22,11 @@ public class InterfazCliente extends HttpServlet {
 
     String operacion = request.getParameter("operacion");
     String dentro = request.getParameter("dentro");
-
+    int id = Integer.parseInt(request.getParameter("user_id"));
 
     if(dentro == "1") {
       if(operacion == null) {
+        verPerfil(id);
       } else if(operacion.equals("ver_archivo")) {
         //verArchivo();
       }
@@ -45,6 +46,13 @@ public class InterfazCliente extends HttpServlet {
 
     }
     footer();
+  }
+
+  void verPerfil(int id){
+    out.println("<div class='wrapper profile'>");
+    out.println("<div class='container p-90 row'>");
+    out.println("</div>");
+    out.println("</div>");
   }
 
   void landingContent() {
@@ -146,7 +154,6 @@ public class InterfazCliente extends HttpServlet {
       out.println("<h4 class='call-to-action'>Bienvenido " + username + "</h4>");
       out.println("<div class='col-12 row perfect'>");
       out.println("<form method=\"GET\" action=\"Cliente\">");
-      out.println("<input type=\"hidden\" name=\"operacion\" value=\"validar\"/>");
       out.println("<input type=\"hidden\" name=\"user_id\" value=\"" + id + "\"/>");
       out.println("<input type=\"hidden\" name=\"dentro\" value=\"1\"/>");
       out.println("<input type=\"submit\" class='col-12 button alpha primary accept' value=\"Continuar\"name=\"B1\">");
@@ -181,7 +188,6 @@ public class InterfazCliente extends HttpServlet {
       out.println("<h4 class='call-to-action'>Bienvenido " + username + "</h4>");
       out.println("<div class='col-12 row perfect'>");
       out.println("<form method=\"GET\" action=\"Cliente\">");
-      out.println("<input type=\"hidden\" name=\"operacion\" value=\"validar\"/>");
       out.println("<input type=\"hidden\" name=\"user_id\" value=\"" + id + "\"/>");
       out.println("<input type=\"hidden\" name=\"dentro\" value=\"1\"/>");
       out.println("<input type=\"submit\" class='col-12 button alpha primary accept' value=\"Continuar\"name=\"B1\">");
