@@ -20,6 +20,10 @@ public class ControlSuscripcion {
     return 1;
   }
 
+  public boolean entrar(String username, String password) {
+    return true;
+  }
+
   // ======================== CODIGO DEL PROFE ==================
   //Valida si la cuenta existe en la base de datos
   public boolean validarCuenta(int ncuenta){

@@ -3,13 +3,13 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 import java.util.*;
-import controles.ControlExtraccion;
+import controles.*;
 
 public class InterfazCliente extends HttpServlet {
   HttpServletResponse thisResponse;
   HttpServletRequest thisRequest;
   PrintWriter out;
-  ControlExtraccion ce;
+  ControlSuscripcion cs;
   
    public void doGet(HttpServletRequest request,
         HttpServletResponse response)
@@ -34,9 +34,15 @@ public class InterfazCliente extends HttpServlet {
         landingContent();
       } else if(operacion.equals("entrar")){
         iniciarSesion();
-      } else if (operacion.equals("crear")){
+      } else if(operacion.equals("crear")){
         crearCuenta();
+      } else if(operacion.equals("crearCuenta")){
+        cuentaCreada(request);
+      } else if(operacion.equals("entrarCuenta")){
+        entrarCuenta(request);
       }
+
+
     }
     footer();
   }
@@ -74,8 +80,8 @@ public class InterfazCliente extends HttpServlet {
     out.println("<h4 class='call-to-action'>Iniciar Sesión</h4>");
     out.println("<div class='col-12 row'>");
     out.println("<form method='GET' action='Cliente'>");
-    out.println("<input type=\"hidden\" name=\"operacion\" value=\"entrar\"/>");
-    out.println("<input type='text' name='email' id='email' value='' placeholder='Correo Electrónico'>");
+    out.println("<input type=\"hidden\" name=\"operacion\" value=\"entrarCuenta\"/>");
+    out.println("<input type='text' name='usuario' id='usuario' value='' placeholder='Nombre de Usuario'>");
     out.println("<input type='text' name='password' id='password' value='' placeholder='Contraseña'>");
     out.println("<input type=\"submit\" class='col-6 button alpha primary accept' value=\"Entrar\"name=\"B1\">");
     out.println("</form>");
@@ -90,7 +96,7 @@ public class InterfazCliente extends HttpServlet {
     out.println("</div>");
     out.println("</div>");
   }
-   void crearCuenta() {
+  void crearCuenta() {
     out.println("<div class='wrapper landing'>");
     out.println("<div class='container p-90 row'>");
     out.println("<div class='col-6'></div>");
@@ -101,8 +107,8 @@ public class InterfazCliente extends HttpServlet {
     out.println("<h4 class='call-to-action'>Crear Cuenta</h4>");
     out.println("<div class='col-12 row'>");
     out.println("<form method='GET' action='Cliente'>");
-    out.println("<input type=\"hidden\" name=\"operacion\" value=\"entrar\"/>");
-    out.println("<input type='text' name='email' id='email' value='' placeholder='Correo Electrónico'>");
+    out.println("<input type=\"hidden\" name=\"operacion\" value=\"crearCuenta\"/>");
+    out.println("<input type='text' name='usuario' id='usuario' value='' placeholder='Nombre de Usuario'>");
     out.println("<input type='text' name='password' id='password' value='' placeholder='Contraseña'>");
     out.println("<input type='text' name='password_confirmation' id='password_confirmation' value='' placeholder='Confirmar Contraseña'>");
     out.println("<input type=\"submit\" class='col-6 button alpha primary accept' value=\"Crear\"name=\"B1\">");
@@ -118,6 +124,78 @@ public class InterfazCliente extends HttpServlet {
     out.println("</div>");
     out.println("</div>");
   }
+
+  void cuentaCreada(HttpServletRequest request) {
+    cs = new ControlSuscripcion();
+
+    String username = request.getParameter("usuario");
+    String password = request.getParameter("password");
+    String password_confirmation = request.getParameter("password_confirmation");
+
+    boolean valid = cs.createAccount(username, password, password_confirmation);
+    int id;
+
+    if(valid) {
+      id = cs.getUserID(username);
+      out.println("<div class='wrapper landing'>");
+      out.println("<div class='container p-90 row'>");
+      out.println("<div class='col-6'></div>");
+      out.println("<div class='col-6 row'>");
+      out.println("<h2 class='main-title'>SEng Bytes & Bits</h2>");
+      out.println("<div class='impact-section col-12 row'>");
+      out.println("<h4 class='call-to-action'>Bienvenido " + username + "</h4>");
+      out.println("<div class='col-12 row perfect'>");
+      out.println("<form method=\"GET\" action=\"Cliente\">");
+      out.println("<input type=\"hidden\" name=\"operacion\" value=\"validar\"/>");
+      out.println("<input type=\"hidden\" name=\"user_id\" value=\"" + id + "\"/>");
+      out.println("<input type=\"hidden\" name=\"dentro\" value=\"1\"/>");
+      out.println("<input type=\"submit\" class='col-12 button alpha primary accept' value=\"Continuar\"name=\"B1\">");
+      out.println("</form>");
+      out.println("</div>");
+      out.println("</div>");
+      out.println("</div>");
+      out.println("</div>");
+      out.println("</div>");
+    } else {
+      crearCuenta();
+    }
+  }
+  void entrarCuenta(HttpServletRequest request) {
+    cs = new ControlSuscripcion();
+
+    String username = request.getParameter("usuario");
+    String password = request.getParameter("password");
+
+    boolean valid = cs.entrar(username, password);
+ 
+    int id;
+
+    if(valid) {
+      id = cs.getUserID(username);
+      out.println("<div class='wrapper landing'>");
+      out.println("<div class='container p-90 row'>");
+      out.println("<div class='col-6'></div>");
+      out.println("<div class='col-6 row'>");
+      out.println("<h2 class='main-title'>SEng Bytes & Bits</h2>");
+      out.println("<div class='impact-section col-12 row'>");
+      out.println("<h4 class='call-to-action'>Bienvenido " + username + "</h4>");
+      out.println("<div class='col-12 row perfect'>");
+      out.println("<form method=\"GET\" action=\"Cliente\">");
+      out.println("<input type=\"hidden\" name=\"operacion\" value=\"validar\"/>");
+      out.println("<input type=\"hidden\" name=\"user_id\" value=\"" + id + "\"/>");
+      out.println("<input type=\"hidden\" name=\"dentro\" value=\"1\"/>");
+      out.println("<input type=\"submit\" class='col-12 button alpha primary accept' value=\"Continuar\"name=\"B1\">");
+      out.println("</form>");
+      out.println("</div>");
+      out.println("</div>");
+      out.println("</div>");
+      out.println("</div>");
+      out.println("</div>");
+    } else {
+      iniciarSesion();
+    }
+  }
+
 
   void header(HttpServletRequest request) {
     out.println("<!DOCTYPE html>");
