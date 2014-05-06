@@ -36,7 +36,6 @@ public class Usuarios {
             ResultSet rs = stmt.getResultSet();
             String passConf = rs.getString("password");
             return (password.equals(passConf) );
-            }
       } catch (SQLException e) { System.out.println ("Error reading database"); }
       return false;
    }
