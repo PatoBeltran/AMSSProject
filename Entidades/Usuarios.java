@@ -49,7 +49,7 @@ public class Usuarios {
    
    public String cambiarPassword(String pass, String password_confirmation){
       if(pass == password_confirmation)
-      stmt.executeUpdate("UPDATE password FROM usuarios SET password = " + "'" + pass + "'");
+      stmt.executeUpdate("UPDATE password FROM usuarios SET password = " + pass + """);
    }
    
 
