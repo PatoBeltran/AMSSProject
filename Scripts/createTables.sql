@@ -17,6 +17,8 @@ CREATE TABLE IF NOT EXISTS votos (
 			IdArticulo INT,
 			Favor BOOLEAN,
 			PRIMARY KEY (IdVoto)
+			FOREIGN KEY (IdUsuario) REFERENCES usuarios (IdUsuario)
+			FOREIGN KEY (IdArticulo) REFERENCES articulos (IdArticulo)
 			);
 
 CREATE TABLE IF NOT EXISTS suscripciones (
