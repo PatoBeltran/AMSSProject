@@ -9,7 +9,7 @@ public class InterfazCliente extends HttpServlet {
   HttpServletResponse thisResponse;
   HttpServletRequest thisRequest;
   PrintWriter out;
-  ControlSuscripcion cs;
+  ControlAutenticacion ca;
   
    public void doGet(HttpServletRequest request,
         HttpServletResponse response)
@@ -23,7 +23,7 @@ public class InterfazCliente extends HttpServlet {
     String operacion = request.getParameter("operacion");
     String dentro = request.getParameter("dentro");
 
-    if(dentro == "si") {
+    if(dentro.equals("si")) {
     int id = Integer.parseInt(request.getParameter("user_id"));
       if(operacion == null) {
         verPerfil(id);
@@ -42,8 +42,6 @@ public class InterfazCliente extends HttpServlet {
       } else if(operacion.equals("entrarCuenta")){
         entrarCuenta(request);
       }
-
-
     }
     footer();
   }
@@ -134,17 +132,17 @@ public class InterfazCliente extends HttpServlet {
   }
 
   void cuentaCreada(HttpServletRequest request) {
-    cs = new ControlSuscripcion();
+    ca = new ControlAutenticacion();
 
     String username = request.getParameter("usuario");
     String password = request.getParameter("password");
     String password_confirmation = request.getParameter("password_confirmation");
 
-    boolean valid = cs.createAccount(username, password, password_confirmation);
+    boolean valid = ca.createAccount(username, password, password_confirmation);
     int id;
 
     if(valid) {
-      id = cs.getUserID(username);
+      id = ca.getUserID(username);
       out.println("<div class='wrapper landing'>");
       out.println("<div class='container p-90 row'>");
       out.println("<div class='col-6'></div>");
@@ -168,17 +166,17 @@ public class InterfazCliente extends HttpServlet {
     }
   }
   void entrarCuenta(HttpServletRequest request) {
-    cs = new ControlSuscripcion();
+    ca = new ControlAutenticacion();
 
     String username = request.getParameter("usuario");
     String password = request.getParameter("password");
 
-    boolean valid = cs.entrar(username, password);
+    boolean valid = ca.entrar(username, password);
  
     int id;
 
     if(valid) {
-      id = cs.getUserID(username);
+      id = ca.getUserID(username);
       out.println("<div class='wrapper landing'>");
       out.println("<div class='container p-90 row'>");
       out.println("<div class='col-6'></div>");
