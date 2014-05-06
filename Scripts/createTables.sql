@@ -1,3 +1,4 @@
+create database if not EXISTS AMSS;
 use AMSS;
 
 CREATE TABLE IF NOT EXISTS usuarios (
