@@ -10,7 +10,7 @@ public class InterfazJuez extends HttpServlet {
   HttpServletRequest thisRequest;
   PrintWriter out;
   ControlAutenticacion ca;
-  ControlAdministacion cadmin;
+  ControlAdministracion cadmin;
 
   
    public void doGet(HttpServletRequest request,
@@ -61,10 +61,9 @@ public class InterfazJuez extends HttpServlet {
     out.println("<div class='impact-section col-12 row'>");
     out.println("<form method='GET' action='Juez'>");
     out.println("<input type=\"hidden\" name=\"operacion\" value=\"editarCuenta\"/>");
+    out.println("<input type=\"hidden\" name=\"dentro\" value=\"si\"/>");
     out.println("<input type=\"hidden\" name=\"user_id\" value=\""+ id +"\"/>");
     out.println("<input type='text' name='usuario' id='usuario' value='' placeholder='Nombre de Usuario'>");
-    out.println("<input type='text' name='direccion' id='direccion' value='' placeholder='Direccion'>");
-    out.println("<input type='text' name='fecha' id='fecha' value='' placeholder='Fecha de Nacimiento'>");
     out.println("<input type='text' name='email' id='email' value='' placeholder='Correo Electronico'>");
     out.println("<input type='password' name='password' id='password' value='' placeholder='Contrasena'>");
     out.println("<input type=\"submit\" class='col-6 button alpha primary accept' value=\"Editar\"name=\"B1\">");
@@ -78,13 +77,14 @@ public class InterfazJuez extends HttpServlet {
 
   }
   void editarCuenta(int id, HttpServletRequest request) {
+    cadmin = new ControlAdministracion();
+
     String username = request.getParameter("usuario");
-    String password = request.getParameter("password");
-    String direccion = request.getParameter("direccion");
+    String passwd = request.getParameter("password");
     String fecha = request.getParameter("fecha");
     String email = request.getParameter("email");
-
-    boolean valido = cadm.editCuenta(username, password, direccion, fecha, email);
+    
+    boolean valido = cadmin.modificarUsuario("Juez", id, username, email, passwd);
 
     if(valido) {
       out.println("<div class='wrapper profile'>");
