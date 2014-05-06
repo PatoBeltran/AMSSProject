@@ -1,11 +1,11 @@
 package controles;
-import entidades.Cuenta;
+import entidades.Usuarios;
 
 public class ControlSuscripcion {
-  Cuenta cuenta;
+  Usuarios cuenta;
 
   public ControlSuscripcion(){
-    cuenta = new Cuenta(); //Asume que la instancia persiste durante la sesion
+    cuenta = new Usuarios(); //Asume que la instancia persiste durante la sesion
   }
 
   public boolean createAccount(String username, String password, String password_confirmation){
@@ -17,13 +17,13 @@ public class ControlSuscripcion {
   }
 
   public int getUserID(String username) {
-    return 1;
+    return cuenta.getUserID(username);
   }
 
   // ======================== CODIGO DEL PROFE ==================
   //Valida si la cuenta existe en la base de datos
   public boolean validarCuenta(int ncuenta){
-    return(cuenta.validar(ncuenta));
+    return(cuenta.validarPorID(ncuenta));
   }
 
   //Implementa una regla de negocio;

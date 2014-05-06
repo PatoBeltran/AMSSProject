@@ -29,24 +29,24 @@ public class Usuarios {
       return false;
    }
 
-   public boolean validarPorId(int IdNumber){
+   public boolean validarPorID(int IDNumber){
       try {
-         stmt.executeQuery ("SELECT IdUsuario FROM usuarios WHERE IdUsuario = " + IdNumber);
+         stmt.executeQuery ("SELECT IDUsuario FROM usuarios WHERE IDUsuario = " + IDNumber);
          ResultSet rs = stmt.getResultSet();
          if (rs.next()) { //Va al primer registro si lo hay
-            int nIdNumber = rs.getInt ("IdUsuario");
+            int nIDNumber = rs.getInt ("IDUsuario");
             rs.close(); 
-            return( IdNumber == nIdNumber );
+            return( IDNumber == nIDNumber );
          }else{ return false;}
       } catch (SQLException e) {}
       return false;
    }
 
 
-   public String getTipo(int IdNumber){
+   public String getTipo(int IDNumber){
       String tipo = "none"; 
       try {
-         stmt.executeQuery ("SELECT tipo FROM usuarios WHERE IdNumber = " + IdNumber);
+         stmt.executeQuery ("SELECT tipo FROM usuarios WHERE IDNumber = " + IDNumber);
          ResultSet rs = stmt.getResultSet();
          rs.next(); //Va al registro ya validado
           tipo = rs.getString("tipo");
@@ -59,7 +59,19 @@ public class Usuarios {
       return tipo;
    }
 
-   public int 
+   public int getUserID(String userName){
+      int IDNumber = 0; 
+      try {
+         stmt.executeQuery ("SELECT IDUsuario FROM usuarios WHERE nombre = " + userName);
+         ResultSet rs = stmt.getResultSet();
+         rs.next(); //Va al registro ya validado
+         IDNumber = rs.getInt("IDUsuario");
+         rs.close();
+         return(IDNumber);
+      } catch (SQLException e) {System.out.println ("Cannot getSaldo()" + e);}
+      return IDNumber;
+   }
+
 
 
       
