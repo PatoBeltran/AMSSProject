@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
 			Tipo VARCHAR(255),
 			Nombre VARCHAR(255),
 			FechaDeNacimiento DATETIME,
-			Email VARCHAR(255),
+			Email VARCHAR(255) NOT NULL,
 			Password VARCHAR(255),
 			PRIMARY KEY (IdUsuario)
 			);
