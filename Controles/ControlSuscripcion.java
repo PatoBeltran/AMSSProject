@@ -21,7 +21,7 @@ public class ControlSuscripcion {
   }
 
   public boolean entrar(String username, String password) {
-    return cuenta.validarCuenta(username, password);
+    return cuenta.login(username, password);
   }
 
   // ======================== CODIGO DEL PROFE ==================

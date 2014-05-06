@@ -30,7 +30,7 @@ public class Usuarios {
       return false;
    }
 
-    public boolean validarCombinacion(String nombre, String password){
+    public boolean login(String nombre, String password){
       try {
          stmt.executeQuery ("SELECT nombre FROM usuarios WHERE nombre = " + nombre);
          ResultSet rs = stmt.getResultSet();
