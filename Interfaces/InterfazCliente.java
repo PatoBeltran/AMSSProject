@@ -23,7 +23,7 @@ public class InterfazCliente extends HttpServlet {
     String operacion = request.getParameter("operacion");
     String dentro = request.getParameter("dentro");
 
-    if(dentro == "1") {
+    if(dentro == "si") {
     int id = Integer.parseInt(request.getParameter("user_id"));
       if(operacion == null) {
         verPerfil(id);
@@ -63,10 +63,10 @@ public class InterfazCliente extends HttpServlet {
     out.println("<h1 class='sub-title'>Bienvenido a</h1>");
     out.println("<h2 class='main-title'>SEng Bytes & Bits</h2>");
     out.println("<div class='impact-section'>");
-    out.println("<h4 class='call-to-action'>Se parte de la revista de software con mayor experiencia en el país.</h4>");
+    out.println("<h4 class='call-to-action'>Se parte de la revista de software con mayor experiencia en el pais.</h4>");
     out.println("<div class='col-12 row'>");
     out.println("<div class='col-6'>");
-    out.println("<a href='?operacion=entrar' class='enter'>Iniciar Sesión</a>");
+    out.println("<a href='?operacion=entrar' class='enter'>Iniciar Sesion</a>");
     out.println("</div>");
     out.println("<div class='col-6'>");
     out.println("<a href='?operacion=crear' class='enter'>Crear Cuenta</a>");
@@ -85,12 +85,12 @@ public class InterfazCliente extends HttpServlet {
     out.println("<h1 class='sub-title'>Bienvenido a</h1>");
     out.println("<h2 class='main-title'>SEng Bytes & Bits</h2>");
     out.println("<div class='impact-section col-12 row'>");
-    out.println("<h4 class='call-to-action'>Iniciar Sesión</h4>");
+    out.println("<h4 class='call-to-action'>Iniciar Sesion</h4>");
     out.println("<div class='col-12 row'>");
     out.println("<form method='GET' action='Cliente'>");
     out.println("<input type=\"hidden\" name=\"operacion\" value=\"entrarCuenta\"/>");
     out.println("<input type='text' name='usuario' id='usuario' value='' placeholder='Nombre de Usuario'>");
-    out.println("<input type='text' name='password' id='password' value='' placeholder='Contraseña'>");
+    out.println("<input type='password' name='password' id='password' value='' placeholder='Contrasena'>");
     out.println("<input type=\"submit\" class='col-6 button alpha primary accept' value=\"Entrar\"name=\"B1\">");
     out.println("</form>");
 
@@ -117,8 +117,8 @@ public class InterfazCliente extends HttpServlet {
     out.println("<form method='GET' action='Cliente'>");
     out.println("<input type=\"hidden\" name=\"operacion\" value=\"crearCuenta\"/>");
     out.println("<input type='text' name='usuario' id='usuario' value='' placeholder='Nombre de Usuario'>");
-    out.println("<input type='text' name='password' id='password' value='' placeholder='Contraseña'>");
-    out.println("<input type='text' name='password_confirmation' id='password_confirmation' value='' placeholder='Confirmar Contraseña'>");
+    out.println("<input type='password' name='password' id='password' value='' placeholder='Contrasena'>");
+    out.println("<input type='password' name='password_confirmation' id='password_confirmation' value='' placeholder='Confirmar Contrasena'>");
     out.println("<input type=\"submit\" class='col-6 button alpha primary accept' value=\"Crear\"name=\"B1\">");
     out.println("</form>");
 
@@ -155,7 +155,7 @@ public class InterfazCliente extends HttpServlet {
       out.println("<div class='col-12 row perfect'>");
       out.println("<form method=\"GET\" action=\"Cliente\">");
       out.println("<input type=\"hidden\" name=\"user_id\" value=\"" + id + "\"/>");
-      out.println("<input type=\"hidden\" name=\"dentro\" value=\"1\"/>");
+      out.println("<input type=\"hidden\" name=\"dentro\" value=\"si\"/>");
       out.println("<input type=\"submit\" class='col-12 button alpha primary accept' value=\"Continuar\"name=\"B1\">");
       out.println("</form>");
       out.println("</div>");
@@ -189,7 +189,7 @@ public class InterfazCliente extends HttpServlet {
       out.println("<div class='col-12 row perfect'>");
       out.println("<form method=\"GET\" action=\"Cliente\">");
       out.println("<input type=\"hidden\" name=\"user_id\" value=\"" + id + "\"/>");
-      out.println("<input type=\"hidden\" name=\"dentro\" value=\"1\"/>");
+      out.println("<input type=\"hidden\" name=\"dentro\" value=\"si\"/>");
       out.println("<input type=\"submit\" class='col-12 button alpha primary accept' value=\"Continuar\"name=\"B1\">");
       out.println("</form>");
       out.println("</div>");
@@ -238,9 +238,9 @@ public class InterfazCliente extends HttpServlet {
     out.println("<p>Handcrafted by <a href='#'>TeamSEngBytesNBits</a></p>");
     out.println("<ul class='navigation inline'>");
     out.println("<li>Patricio Beltrán</li>");
-    out.println("<li>| Adrían Lozano</li>");
-    out.println("<li>| Daniel Jauregui</li>");
-    out.println("<li>| Alexander Baumann</li>");
+    out.println("<li>Adrían Lozano</li>");
+    out.println("<li>Daniel Jauregui</li>");
+    out.println("<li>Alexander Baumann</li>");
     out.println("</ul>");
     out.println("<br>");
     out.println("<ul class='navigation inline'>");
