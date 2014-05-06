@@ -24,9 +24,9 @@ public class Suscripcion {
 		} catch (Exception e){}
 	}
 	
-	public void NotaActualidad(int id) {
+	public void iSuscripcion(int id) {
 		Conexion c = new Conexion();
-		ResultSet rs = c.executeQuery("select * from Nota where idNota = " + id);
+		ResultSet rs = c.executeQuery("select * from Suscripciones where idSuscripcion = " + id);
 		try {
 			if(rs.next()) {
 				init(rs);
