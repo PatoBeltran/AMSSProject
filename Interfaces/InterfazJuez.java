@@ -123,10 +123,6 @@ public class InterfazJuez extends HttpServlet {
     out.println("<div class='personal col-9 row'>");
     out.println("<div class='col-12 user-name row'>");
     out.println("<h1 class='col-6'>" + ca.getUserName(id) + "</h1>");
-    out.println("<div class='col-6' style='text-align: right;'>");
-    out.println("<h2 class='suscription'>" + "Suscrito" + "</h2>");
-    out.println("<h4 class='expiration'>Expira: " + "1/1/10" + "</h4>");
-    out.println("</div>");
     out.println("</div>");
     out.println("<div class='col-12 user-info row'>");
     out.println("<div clas='col-8'>");
@@ -140,7 +136,7 @@ public class InterfazJuez extends HttpServlet {
     out.println("</div>");
     out.println("<hr />");
     out.println("<div class='col-12 row'>");
-    out.println("<h2>Publicaciones Recibidas</h2>");
+    out.println("<h2>Articulos a Publicar</h2>");
     out.println("<div class='col-12 article-item row'>");
     out.println("<div class='col-4'><a href='?user_id="+id+"&dentro=si&operacion=verArt&articulo_id=" + 1 + "'>Titulo del articulo</a></div>");
     out.println("<div class='col-8'>Lorem ipsum dolor sit amet, maiores ornare ac fermentum, imperdiet ut vivamus a, nam lectus at nunc. Quam euismod sem, semper ut potenti pellentesque quisque.... Más</div>");
