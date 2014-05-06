@@ -76,4 +76,16 @@ a.enter:hover {
   text-shadow: none;
   text-decoration: none;
 }
-
+.footer .general-info {
+  background: #303338;
+  padding: 40px 20px;
+  text-align: center;
+}
+.footer h4, .footer h5, .footer li, .footer p, .footer .fa, .footer a {
+color: #FFF;
+}
+.footer .general-info .navigation.inline {
+  display: inline-block;
+  padding-top: 0;
+  padding-bottom: 0;
+}

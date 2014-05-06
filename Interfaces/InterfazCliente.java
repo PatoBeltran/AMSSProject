@@ -23,7 +23,6 @@ public class InterfazCliente extends HttpServlet {
     String operacion = request.getParameter("operacion");
     String dentro = request.getParameter("dentro");
 
-    content();
 
     if(dentro == "1") {
       if(operacion == null) {
@@ -32,9 +31,9 @@ public class InterfazCliente extends HttpServlet {
       }
     } else {
       if(operacion == null){ // El menu nos envia un parametro para indicar el inicio de una transaccion
-        //landingPage();
+        landingContent();
       } else if(operacion.equals("entrar")){
-        //iniciarSesion();
+        iniciarSesion();
       } else if (operacion.equals("crear")){
         //crearCuenta();
       }
@@ -42,7 +41,7 @@ public class InterfazCliente extends HttpServlet {
     footer();
   }
 
-  void content() {
+  void landingContent() {
     out.println("<div class='wrapper landing'>");
     out.println("<div class='container p-90 row'>");
     out.println("<div class='col-6'></div>");
@@ -53,11 +52,36 @@ public class InterfazCliente extends HttpServlet {
     out.println("<h4 class='call-to-action'>Se parte de la revista de software con mayor experiencia en el país.</h4>");
     out.println("<div class='col-12 row'>");
     out.println("<div class='col-6'>");
-    out.println("<a href='#' class='enter'>Iniciar Sesión</a>");
+    out.println("<a href='?operacion=entrar' class='enter'>Iniciar Sesión</a>");
     out.println("</div>");
     out.println("<div class='col-6'>");
-    out.println("<a href='#' class='enter'>Crear Cuenta</a>");
+    out.println("<a href='?operacion=crear' class='enter'>Crear Cuenta</a>");
     out.println("</div>");
+    out.println("</div>");
+    out.println("</div>");
+    out.println("</div>");
+    out.println("</div>");
+    out.println("</div>");
+  }
+  void iniciarSesion() {
+    out.println("<div class='wrapper landing'>");
+    out.println("<div class='container p-90 row'>");
+    out.println("<div class='col-6'></div>");
+    out.println("<div class='col-6'>");
+    out.println("<h1 class='sub-title'>Bienvenido a</h1>");
+    out.println("<h2 class='main-title'>SEng Bytes & Bits</h2>");
+    out.println("<div class='impact-section'>");
+    out.println("<div class='col-12 row'>");
+    out.println("<form method='GET' action='Cliente'>");
+    out.println("<input type='text' name='email' size='15'>");
+    out.println("<input type='text' name='password' size='15'>");
+    out.println("<input type=\"submit\" value=\"Entrar\"name=\"B1\">");
+    out.println("</form>");
+
+    out.println("<form method=\"GET\" action=\"index.html\">");
+    out.println("<p><input type=\"submit\" value=\"Cancelar\"name=\"B2\"></p>");
+    out.println("</form>");
+
     out.println("</div>");
     out.println("</div>");
     out.println("</div>");
@@ -93,6 +117,24 @@ public class InterfazCliente extends HttpServlet {
   }
 
   void footer() {
+    out.println("<div class='footer'>");
+    out.println("<div class='general-info'>");
+    out.println("<div class='row'>");
+    out.println("<p>Handcrafted by <a href='#'>TeamSEngBytesNBits</a></p>");
+    out.println("<ul class='navigation inline'>");
+    out.println("<li>Patricio Beltrán</li>");
+    out.println("<li>| Adrían Lozano</li>");
+    out.println("<li>| Daniel Jauregui</li>");
+    out.println("<li>| Alexander Baumann</li>");
+    out.println("</ul>");
+    out.println("<br>");
+    out.println("<ul class='navigation inline'>");
+    out.println("<li class='header'>Currently v1.0.0</li>");
+    out.println("</ul>");
+    out.println("</div>");
+    out.println("</div>");
+    out.println("</div>");
+
     out.println("<!--includes javascript at the bottom so the page loads faster-->");
     out.println("<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>");
     out.println("<script type='text/javascript' charset='utf-8' src='http://icalialabs.github.io/furatto/dist/js/furatto.js'></script>");
