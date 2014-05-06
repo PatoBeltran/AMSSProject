@@ -40,6 +40,20 @@ public class Usuarios {
     } catch (SQLException e) { System.out.println ("Error reading database login " + e); }
     return false;
   }
+  public boolean modificarUsuario(String tipo, int idUsuario, String nombre, String email, String pass){
+    try{
+      String s = "UPDATE usuarios SET tipo = '" + tipo + "' WHERE idUsuario = " + idUsuario;
+      String d = "UPDATE usuarios SET nombre = '" + nombre + "' WHERE idUsuario = " + idUsuario;
+      String f = "UPDATE usuarios SET email = '" + email + "' WHERE idUsuario = " + idUsuario;
+      String g = "UPDATE usuarios SET password = '" + pass + "' WHERE idUsuario = " + idUsuario;
+      stmt.executeUpdate(s);
+      stmt.executeUpdate(d);
+      stmt.executeUpdate(f);
+      stmt.executeUpdate(g);
+      return true;
+    } catch (SQLException e) { System.out.println ("Error reading database edit user " + e); }
+    return false;
+  }
 
   public boolean validarPorID(int IDNumber){
     try {
