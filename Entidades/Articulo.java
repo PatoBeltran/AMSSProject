@@ -40,4 +40,12 @@ public class Articulo{
 		} catch (SQLException e) { System.out.println ("Error reading database editArticuloTitulo"); }
 		return false;
 	}
+	
+	public void nuevoArticulo(int idAutor, int idArticulo, String titulo, String info, String fechaPub, boolean publicado){
+		try{
+			String s = "INSERT INTO articulos (idarticulo, titulo, idautor, fechapublicacion, publicado, informacion)" 
+			+ " VALUES (" + idArticulo + " ,'" + titulo + " ,'" + idAutor + " ,'" + fechaPub + " ,'" + publicado + " ,'" + info + " )");
+			stmt.executeUpdate(s);
+		} catch (SQLException e) { System.out.println ("Error updating database Articulo");
+	}
 }
