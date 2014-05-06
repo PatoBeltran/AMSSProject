@@ -198,6 +198,7 @@ public class InterfazCliente extends HttpServlet {
       out.println("</div>");
       out.println("</div>");
     } else {
+      System.out.println("AVALIABLE: " + valid + " : " + username + " : " + password);
       iniciarSesion();
     }
   }
