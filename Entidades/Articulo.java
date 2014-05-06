@@ -40,4 +40,30 @@ public class Articulo{
 		} catch (SQLException e) { System.out.println ("Error reading database editArticuloTitulo"); }
 		return false;
 	}
+
+	public int [] getIDArticulos(){
+		int [] array = new int [256];
+		try{
+			stmt.executeQuery("SELECT idArticulo FROM articulo WHERE publicado = 1");
+			ResultSet rs = stmt.getResultSet();
+			int counter=0;
+			while(rs.next())
+			{
+				array[counter]=rs.getInt("idArticulo");
+				counter++;
+			}
+			int [] array2 = new int[counter];
+			System.arraycopy( array, 0, array2, 0, array2.length );
+			return array2;
+		} catch (SQLException e) { System.out.println ("Error reading database editArticuloTitulo"); }
+		return new int [] {0};
+	
+	public void nuevoArticulo(int idAutor, int idArticulo, String titulo, String info, String fechaPub, boolean publicado){
+		try{
+			String s = "INSERT INTO articulos (idarticulo, titulo, idautor, fechapublicacion, publicado, informacion)" 
+			+ " VALUES (" + idArticulo + " ,'" + titulo + " ,'" + idAutor 
+			+ " ,'" + fechaPub + " ,'" + publicado + " ,'" + info + " )");
+			stmt.executeUpdate(s);
+		} catch (SQLException e) { System.out.println ("Error updating database Articulo");
+	}
 }
