@@ -20,22 +20,38 @@ public class Usuarios {
 
    public boolean validarPorNombre(String nombre){
       try {
-         stmt.executeQuery ("SELECT nombre FROM usuarios WHERE nombre = '" + nombre + "'");
+         stmt.executeQuery ("SELECT nombre FROM usuarios WHERE nombre = " + nombre);
          ResultSet rs = stmt.getResultSet();
-         return (rs.next());//Va al primer registro si lo hay
-      } catch (SQLException e) { System.out.println ("Error reading database validarPorNombre"); }
+         if (rs.next()) { //Va al primer registro si lo hay
+            String nnombre = rs.getString("nombre");
+            return( nnombre.equals(nombre) );
+         }else{ return false;}
+      } catch (SQLException e) { System.out.println ("Error reading database"); }
       return false;
    }
 
     public boolean login(String nombre, String password){
       try {
-            stmt.executeQuery ("SELECT password FROM usuarios WHERE nombre = " + "'" + nombre + "'");
-            ResultSet rs = stmt.getResultSet();
-            String passConf = rs.getString("password");
-            return (password.equals(passConf) );
-      } catch (SQLException e) { System.out.println ("Error reading database login"); }
+         stmt.executeQuery ("SELECT nombre FROM usuarios WHERE nombre = " + nombre);
+         ResultSet rs = stmt.getResultSet();
+         if (rs.next()) { //Va al primer registro si lo hay
+            String nnombre = rs.getString("nombre");
+            if ( nnombre.equals(nombre) ){
+              stmt.executeQuery ("SELECT password FROM usuarios WHERE nombre = " + nombre);
+              ResultSet rs2 = stmt.getResultSet();
+              String passConf = rs.getString("password");
+              return (password.equals(passConf) );
+            }
+         }else{ return false;}
+      } catch (SQLException e) { System.out.println ("Error reading database"); }
       return false;
    }
+   
+   public String cambiarPassword(String pass, String password_confirmation){
+      if(pass == password_confirmation)
+      stmt.executeUpdate("UPDATE password FROM usuarios SET password = " + "'" + pass + "'");
+   }
+   
 
    public boolean validarPorID(int IDNumber){
       try {
