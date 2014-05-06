@@ -25,18 +25,19 @@ public class Articulo{
     return "";
 	}
 	
-	public boolean editArticulo(int idArticulo, String nInfo, String nTitulo)
-	{
-		// try{
-		// 	stmt.executeQuery("SELECT informacion FROM articulo WHERE idArticulo = " + idArticulo);
-		// 	ResultSet rs= stmt.getResultSet();
-		// 	if(rs.next()){
-		// 		if(nInfo!="")
-		// 		stmt.executeUpdate("UPDATE articulo SET informacion = '" + nInfo + "'");
-		// 		if(nTitulo!="")
-		// 		stmt.excecuteUpdate("UPDATE articulo SET titulo = '" + nTitulo + "'");
-		// 	}
-		// } catch (SQLException e) { System.out.println ("Error reading database getArticulo"); }
+	public boolean editArticuloInfo(int idArticulo, String nInfo){
+		try{
+			stmt.executeUpdate("UPDATE articulo SET informacion = '" + nInfo + "' WHERE idArticulo = " + idArticulo);
+			return true;
+		} catch (SQLException e) { System.out.println ("Error reading database editArticuloInfo"); }
+		return false;
+	}
+
+	public boolean editArticuloTitulo(int idArticulo, String nInfo){
+		try{
+			stmt.executeUpdate("UPDATE articulo SET informacion = '" + nInfo + "' WHERE idArticulo = " + idArticulo);
+			return true;
+		} catch (SQLException e) { System.out.println ("Error reading database editArticuloInfo"); }
 		return false;
 	}
 }
