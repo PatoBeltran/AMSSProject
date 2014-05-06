@@ -6,6 +6,7 @@ public class Usuarios {
    Connection conn;
    Statement stmt;
 
+
    public Usuarios(){
       try {
         String userName = "root";
@@ -24,6 +25,23 @@ public class Usuarios {
          if (rs.next()) { //Va al primer registro si lo hay
             String nnombre = rs.getString("nombre");
             return( nnombre == nombre );
+         }else{ return false;}
+      } catch (SQLException e) { System.out.println ("Error reading database"); }
+      return false;
+   }
+
+    public boolean login(String nombre, String password){
+      try {
+         stmt.executeQuery ("SELECT nombre FROM usuarios WHERE nombre = " + nombre);
+         ResultSet rs = stmt.getResultSet();
+         if (rs.next()) { //Va al primer registro si lo hay
+            String nnombre = rs.getString("nombre");
+            if ( nnombre == nombre ){
+              stmt.executeQuery ("SELECT password FROM usuarios WHERE nombre = " + nombre);
+              ResultSet rs2 = stmt.getResultSet();
+              String passConf = rs.getString("password");
+              return (password == passConf );
+            }
          }else{ return false;}
       } catch (SQLException e) { System.out.println ("Error reading database"); }
       return false;
@@ -72,6 +90,20 @@ public class Usuarios {
       return IDNumber;
    }
 
+
+   boolean createAccount(String userName, String password){
+    if(!validarPorNombre(userName))
+    {
+      try{
+        String updateInsert = "INSERT INTO usuarios (nombre, password) VALUES " +  
+          "('" + userName + "' , '" + password + "')";
+
+        stmt.executeUpdate (updateInsert);
+          return true;
+      } catch (Exception e) { System.out.println ("Cannot update database" + e);}
+    }
+    return false;
+   }
 
 
       
