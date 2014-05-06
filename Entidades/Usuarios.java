@@ -74,7 +74,7 @@ public class Usuarios {
   public int getUserID(String userName){
     int IDNumber = 0; 
     try {
-      stmt.executeQuery("SELECT IDUsuario FROM usuarios WHERE nombre = " + userName);
+      stmt.executeQuery("SELECT IDUsuario FROM usuarios WHERE nombre = '" + userName + "'");
       ResultSet rs = stmt.getResultSet();
       rs.next(); //Va al registro ya validado
       IDNumber = rs.getInt("IDUsuario");
@@ -82,6 +82,19 @@ public class Usuarios {
       return(IDNumber);
     } catch (SQLException e) {System.out.println ("Cannot getSaldo()" + e);}
     return IDNumber;
+  }
+
+    public String getUserName(int userID){
+    String result;
+    try {
+      stmt.executeQuery("SELECT nombre FROM usuarios WHERE IDUsuario = " + userID);
+      ResultSet rs = stmt.getResultSet();
+      rs.next(); //Va al registro ya validado
+      result = rs.getString("nombre");
+      rs.close();
+      return(result);
+    } catch (SQLException e) {System.out.println ("Cannot getUserName" + e);}
+    return "";
   }
 
 

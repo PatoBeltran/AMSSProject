@@ -20,6 +20,10 @@ public class ControlAutenticacion {
     return cuenta.getUserID(username);
   }
 
+  public String getUserName(int idUsuario) {
+    return cuenta.getUserName(idUsuario);
+  }
+
   public boolean entrar(String username, String password) {
     return cuenta.login(username, password);
   }

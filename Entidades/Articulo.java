@@ -14,7 +14,7 @@ public class Articulo{
 
    }
 	   
-	public  getArticulo(int idArticulo) {	
+	public String getArticulo(int idArticulo) {	
     try {
       stmt.executeQuery("SELECT informacion FROM articulo WHERE idArticulo = " + idArticulo);
       ResultSet rs = stmt.getResultSet();
@@ -24,3 +24,4 @@ public class Articulo{
     } catch (SQLException e) { System.out.println ("Error reading database validarPorNombre"); }
     return "";
 	}
+}
