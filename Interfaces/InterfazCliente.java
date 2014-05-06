@@ -10,6 +10,8 @@ public class InterfazCliente extends HttpServlet {
   HttpServletRequest thisRequest;
   PrintWriter out;
   ControlAutenticacion ca;
+  ControlAdministacion cadmin;
+
   
    public void doGet(HttpServletRequest request,
         HttpServletResponse response)
@@ -42,10 +44,62 @@ public class InterfazCliente extends HttpServlet {
       } else if(operacion.equals("verArt")) {
         String artid = request.getParameter("articulo_id");
         verArticulo(artid, id);
+      } else if(operacion.equals("editInfo")) {
+        editInfo(id);
+      } else if(operacion.equals("editarCuenta")) {
+        editarCuenta(id, request);
       }
+
     }
     footer();
   }
+
+  void editInfo(int id) {
+    out.println("<div class='wrapper profile'>");
+    out.println("<div class='container p-90 row'>");
+
+    out.println("<div class='impact-section col-12 row'>");
+    out.println("<form method='GET' action='Cliente'>");
+    out.println("<input type=\"hidden\" name=\"operacion\" value=\"editarCuenta\"/>");
+    out.println("<input type=\"hidden\" name=\"user_id\" value=\""+ id +"\"/>");
+    out.println("<input type='text' name='usuario' id='usuario' value='' placeholder='Nombre de Usuario'>");
+    out.println("<input type='text' name='direccion' id='direccion' value='' placeholder='Direccion'>");
+    out.println("<input type='text' name='fecha' id='fecha' value='' placeholder='Fecha de Nacimiento'>");
+    out.println("<input type='text' name='email' id='email' value='' placeholder='Correo Electronico'>");
+    out.println("<input type='password' name='password' id='password' value='' placeholder='Contrasena'>");
+    out.println("<input type=\"submit\" class='col-6 button alpha primary accept' value=\"Editar\"name=\"B1\">");
+    out.println("</form>");
+    out.println("</div>");
+
+    out.println("<a href='?user_id="+id+"&dentro=si' class='button alpha danger cancel' style='max-width: 100px;'>Regresar</a>");
+
+    out.println("</div>");
+    out.println("</div>");
+
+  }
+  void editarCuenta(int id, HttpServletRequest request) {
+    String username = request.getParameter("usuario");
+    String password = request.getParameter("password");
+    String direccion = request.getParameter("direccion");
+    String fecha = request.getParameter("fecha");
+    String email = request.getParameter("email");
+
+    boolean valido = cadm.editCuenta(username, password, direccion, fecha, email);
+
+    if(valido) {
+      out.println("<div class='wrapper profile'>");
+      out.println("<div class='container p-90 row'>");
+      out.println("<h3>Se han modificado los datos</h3>");
+      out.println("<a href='?user_id="+id+"&dentro=si' class='button alpha danger cancel' style='max-width: 100px;'>Regresar</a>");
+      out.println("</div>");
+      out.println("</div>");
+    }
+    else {
+      editInfo(id);
+    }
+
+  }
+
 
   void verArticulo(String artid, int id) {
     out.println("<div class='wrapper profile'>");
@@ -80,7 +134,7 @@ public class InterfazCliente extends HttpServlet {
     out.println("<p>" + "" + "</p>");
     out.println("</div>");
     out.println("<div class='col-4' style='text-align: right;'>");
-    out.println("<a href='#' class='enter'>Editar Informacion</a>");
+    out.println("<a href='?user_id="+id+"&dentro=si&operacion=editInfo' class='enter'>Editar Informacion</a>");
     out.println("<a href='#' class='enter'>Enviar Publicidad</a>");
     out.println("</div>");
     out.println("</div>");
