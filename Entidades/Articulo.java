@@ -33,11 +33,11 @@ public class Articulo{
 		return false;
 	}
 
-	public boolean editArticuloTitulo(int idArticulo, String nInfo){
+	public boolean editArticuloTitulo(int idArticulo, String nTitulo){
 		try{
-			stmt.executeUpdate("UPDATE articulo SET informacion = '" + nInfo + "' WHERE idArticulo = " + idArticulo);
+			stmt.executeUpdate("UPDATE articulo SET titulo = '" + nTitulo + "' WHERE idArticulo = " + idArticulo);
 			return true;
-		} catch (SQLException e) { System.out.println ("Error reading database editArticuloInfo"); }
+		} catch (SQLException e) { System.out.println ("Error reading database editArticuloTitulo"); }
 		return false;
 	}
 }
