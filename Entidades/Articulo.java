@@ -24,7 +24,7 @@ public class Articulo{
 	      titulo = rs.getString("titulo");
 	      idAutor = rs.getInt("idautor");
 	      estatus = rs.getBoolean("publicado");
-	      testoArticulo = rs.getString("informacion");
+	      textoArticulo = rs.getString("informacion");
 	      fechaPublicacion = rs.getDate("fechapublicacion");
 	      } catch (Exception e) {}
 	   }
