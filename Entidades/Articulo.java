@@ -36,6 +36,17 @@ public class Articulo{
     return "";
 	}
 	
+	public  int getAutorIDArticulo(int idArticulo) {	
+    		try {
+      			stmt.executeQuery("SELECT IDautor FROM articulo WHERE idArticulo = " + idArticulo);
+      			ResultSet rs = stmt.getResultSet();
+      			if (rs.next()) {
+      				return rs.getInt("IDautor");
+      					}
+    			} catch (SQLException e) { System.out.println ("Error reading database getAutorIDArticulo"); }
+    return 0;
+	}
+
 	public boolean editArticuloInfo(int idArticulo, String nInfo){
 		try{
 			stmt.executeUpdate("UPDATE articulo SET informacion = '" + nInfo + "' WHERE idArticulo = " + idArticulo);
@@ -88,6 +99,9 @@ public class Articulo{
 		} catch (SQLException e) { System.out.println ("Error reading database editArticuloTitulo"); }
 		return new int [] {0};
 	}
+
+	
+
 	public void nuevoArticulo(int idAutor, int idArticulo, String titulo, String info, String fechaPub, boolean publicado){
 		try{
 			String s = "INSERT INTO articulos (idarticulo, titulo, idautor, fechapublicacion, publicado, informacion)" 
