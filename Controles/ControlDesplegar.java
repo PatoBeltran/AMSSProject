@@ -15,6 +15,10 @@ public class ControlDesplegar{
   public String getTitulo(int idArt){
     return articulo.getInformacionTitulo(idArt);
   }
+
+  public String getAutorIDArticulo(int idArt){
+    articulo.getIDAutor
+  }
   
   
 }
