@@ -11,7 +11,14 @@ public class Articulo{
 	
 	
 	public Articulo (){
-
+		try {
+	      String userName = "root";
+	      String password = "";
+	      String url = "jdbc:mysql://localhost/AMSS";
+	      Class.forName ("com.mysql.jdbc.Driver").newInstance();
+	      conn = DriverManager.getConnection (url, userName, password);
+	      stmt = conn.createStatement();
+	    }catch (Exception e) { System.out.println ("Cannot connect to database server"); }
    }
 	   
 	public  String getInformacionArticulo(int idArticulo) {	
@@ -100,7 +107,13 @@ public class Articulo{
 		return new int [] {0};
 	}
 
-	
+	public void publicar(int idArticulo, int toggle){
+		try{
+			stmt.executeUpdate("UPDATE articulo SET publicado = " + toggle + "WHERE idArticulo = " + idArticulo);
+
+		} catch (SQLException e) { System.out.println ("Error reading database editArticuloInfo"); }
+
+	}
 
 	public void nuevoArticulo(int idAutor, int idArticulo, String titulo, String info, String fechaPub, boolean publicado){
 		try{

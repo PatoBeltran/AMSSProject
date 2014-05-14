@@ -70,6 +70,15 @@
         <servlet-name>Autor</servlet-name>
         <url-pattern>/Autor</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Administrador</servlet-name>
+        <servlet-class>interfaces.InterfazAdministrador</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Administrador</servlet-name>
+        <url-pattern>/Administrador</url-pattern>
+    </servlet-mapping>
 
 
 

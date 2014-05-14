@@ -151,14 +151,14 @@ public class Usuarios {
 
   public boolean getVoto(int userID, int articuloID){
     try {
-      stmt.executeQuery("SELECT favor FROM votos WHERE IDUsuario = " + userID " and idArticulo = " + articuloID);
+      stmt.executeQuery("SELECT favor FROM votos WHERE IDUsuario = " + userID + " and idArticulo = " + articuloID);
       ResultSet rs = stmt.getResultSet();
       if(rs.next())
       {
       return rs.getInt("favor")==0 ? false : true;
       } else {
-        return false;
         rs.close();
+        return false;
       }
       
     } catch (SQLException e) {System.out.println ("Cannot getUserName" + e);}
