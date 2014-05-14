@@ -1,11 +1,12 @@
 package controles;
+
 import entidades.*;
 import java.sql.Date;
 
 public class ControlDesplegar{
-  Articulo = articulo;
+  Articulo articulo;
   
-  public ControlDesplegar{
+  public ControlDesplegar(){
    articulo = new Articulo();
   }
   
@@ -13,7 +14,7 @@ public class ControlDesplegar{
     return articulo.getInformacionArticulo(idArt);
   }
   public String getTitulo(int idArt){
-    return articulo.getInformacionTitulo(idArt);
+    return "Titulo de articulo";//articulo.getInformacionTitulo(idArt);
   }
 
   public String getAutorIDArticulo(int idArt){

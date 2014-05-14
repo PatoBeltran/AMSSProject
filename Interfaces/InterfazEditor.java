@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.*;
 import controles.*;
 
-public class InterfazJuez extends HttpServlet {
+public class InterfazEditor extends HttpServlet {
   HttpServletResponse thisResponse;
   HttpServletRequest thisRequest;
   PrintWriter out;
@@ -59,7 +59,7 @@ public class InterfazJuez extends HttpServlet {
     out.println("<div class='container p-90 row'>");
 
     out.println("<div class='impact-section col-12 row'>");
-    out.println("<form method='GET' action='Juez'>");
+    out.println("<form method='GET' action='Editor'>");
     out.println("<input type=\"hidden\" name=\"operacion\" value=\"editarCuenta\"/>");
     out.println("<input type=\"hidden\" name=\"dentro\" value=\"si\"/>");
     out.println("<input type=\"hidden\" name=\"user_id\" value=\""+ id +"\"/>");
@@ -84,7 +84,7 @@ public class InterfazJuez extends HttpServlet {
     String fecha = request.getParameter("fecha");
     String email = request.getParameter("email");
     
-    boolean valido = cadmin.modificarUsuario("Juez", id, username, email, passwd);
+    boolean valido = cadmin.modificarUsuario("editor", id, username, email, passwd);
 
     if(valido) {
       out.println("<div class='wrapper profile'>");
@@ -107,7 +107,7 @@ public class InterfazJuez extends HttpServlet {
     out.println("<h2 style='text-align: center;'>"  +  "Titulo del articulo" + " - " + "Pato"  + "</h2>");
     out.println("<hr />");
     out.println("<p>" + "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas egestas libero et varius tristique. Mauris vitae tellus odio. In pellentesque enim quis erat sollicitudin facilisis. Praesent in rutrum metus, sed tempus sapien. Nullam cursus lectus tortor, eu porta sem tempor ac. Nunc lacus massa, vehicula vitae arcu sed, rhoncus ultrices ligula. Suspendisse vel faucibus massa. Etiam quis neque iaculis, sagittis purus sit amet, cursus tellus. Mauris ac euismod urna. In tempor turpis id egestas semper. Mauris in auctor lacus. Quisque cursus velit in lacus viverra, non sagittis nulla rhoncus. Morbi vehicula velit mi, non egestas turpis aliquet in. Duis in luctus eros. Nunc pharetra pellentesque quam. Aliquam ultrices nulla orci, eu mollis turpis imperdiet vel. Morbi at luctus orci. Fusce erat mauris, dictum non aliquet non, tempor a ligula. Nullam sed orci at nisl varius accumsan eu non dui. Nulla ultrices nunc nec neque blandit tristique. Quisque velit leo, molestie nec tellus at, rutrum sagittis elit. Proin quis orci a ipsum interdum congue. Nulla facilisi. Duis at mauris ante. Curabitur ut eleifend arcu. Curabitur a arcu justo. Morbi euismod fermentum rutrum. Nullam congue ipsum vitae magna eleifend, vitae imperdiet ipsum aliquet. Aenean vulputate congue magna, viverra imperdiet nibh blandit eget. In posuere lorem a enim porttitor pharetra. Sed est justo, lobortis vitae facilisis et, gravida eu sapien. Morbi aliquet odio interdum orci fermentum, sed ullamcorper sem euismod. Mauris eleifend tincidunt varius. Cras cursus mollis adipiscing. Nunc a diam a urna tristique dignissim. Mauris lacinia porta turpis non iaculis. Praesent tincidunt pharetra nulla, bibendum porta quam iaculis sed. Nunc varius felis erat, vel pretium metus sodales at."+ "</p>");
-    out.println("<a href='?user_id="+id+"&dentro=si' class='button alpha primary accept' style='max-width: 100px;'>Votar</a>");
+    out.println("<a href='?user_id="+id+"&dentro=si' class='button alpha primary accept' style='max-width: 100px;'>Publicar Articulo</a>");
     out.println("<a href='?user_id="+id+"&dentro=si' class='button alpha danger cancel' style='max-width: 100px;'>Regresar</a>");
   
     out.println("</div>");
@@ -181,7 +181,7 @@ public class InterfazJuez extends HttpServlet {
     out.println("<div class='impact-section col-12 row'>");
     out.println("<h4 class='call-to-action'>Iniciar Sesion</h4>");
     out.println("<div class='col-12 row'>");
-    out.println("<form method='GET' action='Juez'>");
+    out.println("<form method='GET' action='Editor'>");
     out.println("<input type=\"hidden\" name=\"operacion\" value=\"entrarCuenta\"/>");
     out.println("<input type='text' name='usuario' id='usuario' value='' placeholder='Nombre de Usuario'>");
     out.println("<input type='password' name='password' id='password' value='' placeholder='Contrasena'>");
@@ -208,7 +208,7 @@ public class InterfazJuez extends HttpServlet {
     out.println("<div class='impact-section col-12 row'>");
     out.println("<h4 class='call-to-action'>Crear Cuenta</h4>");
     out.println("<div class='col-12 row'>");
-    out.println("<form method='GET' action='Juez'>");
+    out.println("<form method='GET' action='Editor'>");
     out.println("<input type=\"hidden\" name=\"operacion\" value=\"crearCuenta\"/>");
     out.println("<input type='text' name='usuario' id='usuario' value='' placeholder='Nombre de Usuario'>");
     out.println("<input type='password' name='password' id='password' value='' placeholder='Contrasena'>");
@@ -247,7 +247,7 @@ public class InterfazJuez extends HttpServlet {
       out.println("<div class='impact-section col-12 row'>");
       out.println("<h4 class='call-to-action'>Bienvenido " + username + "</h4>");
       out.println("<div class='col-12 row perfect'>");
-      out.println("<form method=\"GET\" action=\"Juez\">");
+      out.println("<form method=\"GET\" action=\"Editor\">");
       out.println("<input type=\"hidden\" name=\"user_id\" value=\"" + id + "\"/>");
       out.println("<input type=\"hidden\" name=\"dentro\" value=\"si\"/>");
       out.println("<input type=\"submit\" class='col-12 button alpha primary accept' value=\"Continuar\"name=\"B1\">");
@@ -281,7 +281,7 @@ public class InterfazJuez extends HttpServlet {
       out.println("<div class='impact-section col-12 row'>");
       out.println("<h4 class='call-to-action'>Bienvenido " + username + "</h4>");
       out.println("<div class='col-12 row perfect'>");
-      out.println("<form method=\"GET\" action=\"Juez\">");
+      out.println("<form method=\"GET\" action=\"Editor\">");
       out.println("<input type=\"hidden\" name=\"user_id\" value=\"" + id + "\"/>");
       out.println("<input type=\"hidden\" name=\"dentro\" value=\"si\"/>");
       out.println("<input type=\"submit\" class='col-12 button alpha primary accept' value=\"Continuar\"name=\"B1\">");
@@ -352,4 +352,3 @@ public class InterfazJuez extends HttpServlet {
     out.println("</html>");
   }
 }
-
