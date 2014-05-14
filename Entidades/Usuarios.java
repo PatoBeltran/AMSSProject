@@ -136,6 +136,34 @@ public class Usuarios {
     return false;
   }
 
+  public void votar(int userID, int articuloID, int favor){
+    if(!validarPorID(userID))
+    {
+      try{
+        String updateInsert = "REPLACE INTO votos VALUES " +  
+          "(" + userID + "," + articuloID + ", "+ favor + ")";
+
+        stmt.executeUpdate (updateInsert);
+      } catch (Exception e) { System.out.println ("Cannot update database" + e);}
+    }
+  }
+
+
+  public boolean getVoto(int userID, int articuloID){
+    try {
+      stmt.executeQuery("SELECT favor FROM votos WHERE IDUsuario = " + userID " and idArticulo = " + articuloID);
+      ResultSet rs = stmt.getResultSet();
+      if(rs.next())
+      {
+      return rs.getInt("favor")==0 ? false : true;
+      } else {
+        return false;
+        rs.close();
+      }
+      
+    } catch (SQLException e) {System.out.println ("Cannot getUserName" + e);}
+    return false;
+  }
 
   ////legacy///
   public void agregar(int cuenta, String nombre, float saldo){

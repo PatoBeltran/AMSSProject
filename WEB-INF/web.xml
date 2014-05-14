@@ -62,11 +62,22 @@
         <url-pattern>/Editor</url-pattern>
       </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Autor</servlet-name>
+        <servlet-class>interfaces.InterfazAutor</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Autor</servlet-name>
+        <url-pattern>/Autor</url-pattern>
+    </servlet-mapping>
+
+
+
 
 
 <!--
 <servlet>
-    <servlet-name>HelloWorld</servlet-name> 
+    <servlet-name>HelloWorld</servlet-name>
     <servlet-class>com.swengsol.HelloWorldServlet</servlet-class> 
   </servlet>
   <servlet-mapping>

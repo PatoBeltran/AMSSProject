@@ -131,7 +131,6 @@ insert into suscripciones
 
 insert into votos
 	values (
-		10101,
 		12,
 		3,
 		0

@@ -18,7 +18,8 @@ public class ControlDesplegar{
   }
 
   public String getAutorIDArticulo(int idArt){
-    articulo.getIDAutor
+    //articulo.getIDAutor();
+    return("Julio Cortazar");
   }
   
   

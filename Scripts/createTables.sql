@@ -12,12 +12,11 @@ CREATE TABLE IF NOT EXISTS usuarios (
 			);
 
 CREATE TABLE IF NOT EXISTS votos (
-			IdVoto INT AUTO_INCREMENT,
 			IdUsuario INT,
 			IdArticulo INT,
 			Favor BOOLEAN,
-			PRIMARY KEY (IdVoto)
-			FOREIGN KEY (IdUsuario) REFERENCES usuarios (IdUsuario)
+			PRIMARY KEY (IdUsuario, IdArticulo),
+			FOREIGN KEY (IdUsuario) REFERENCES usuarios (IdUsuario),
 			FOREIGN KEY (IdArticulo) REFERENCES articulos (IdArticulo)
 			);
 
