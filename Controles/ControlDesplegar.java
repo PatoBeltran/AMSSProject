@@ -14,12 +14,12 @@ public class ControlDesplegar{
     return articulo.getInformacionArticulo(idArt);
   }
   public String getTitulo(int idArt){
-    return "Titulo de articulo";//articulo.getInformacionTitulo(idArt);
+    return articulo.getTituloArticulo(idArt);
   }
 
-  public String getAutorIDArticulo(int idArt){
-    //articulo.getIDAutor();
-    return("Julio Cortazar");
+  public int getAutorIDArticulo(int idArt){
+  return articulo.getAutorIDArticulo(idArt);
+
   }
   
   
